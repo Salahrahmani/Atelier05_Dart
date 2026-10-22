@@ -1,10 +1,16 @@
 class MotdepasseCourtException implements Exception {}
 
+class MotdepasseCourtException implements Exception {}
+
+void verifierMotdepasse(String mp) {
+  if (mp.length < 6) {
+    throw MotdepasseCourtException();
+  }
+}
+
 void main() {
   try {
-    if ("1234".length < 6) {
-      throw MotdepasseCourtException();
-    }
+    verifierMotdepasse("1234");
   } on MotdepasseCourtException {
     print("Mot de passe trop court");
   }
